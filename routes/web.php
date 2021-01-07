@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([], function () {
+
+    // Get user profile with id get query parameter
+    Route::get('/', 'UserController@index');
+
+    // Get user profile with id parameter
+    Route::get('/user/{id}', 'UserController@view');
+
+    // Update user comment
+    Route::post('/user', 'UserController@update');
+
 });
